@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cửa Hàng Hoàn Chỉnh</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>CỬA HÀNG ONLINE</h1>
+    <p>Trang web bán hàng dùng Google Sheet làm API</p>
+  </header>
+
+  <nav>
+    <a href="#">Trang chủ</a>
+    <a href="#">Sản phẩm</a>
+    <a href="#">Đăng nhập</a>
+    <a href="#">Liên hệ</a>
+  </nav>
+
+  <div class="banner"></div>
+
+  <div class="container">
+
+    <div class="search-filter">
+      <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm sản phẩm..." />
+      <select id="priceFilter">
+        <option value="">Lọc theo giá</option>
+        <option value="lt200">Dưới 200.000đ</option>
+        <option value="200to400">Từ 200.000đ - 400.000đ</option>
+        <option value="gt400">Trên 400.000đ</option>
+      </select>
+      <select id="ratingFilter">
+        <option value="">Lọc theo sao</option>
+        <option value="5">5 sao</option>
+        <option value="4">Từ 4 sao</option>
+        <option value="3">Từ 3 sao</option>
+      </select>
+    </div>
+
+    <h2>Sản phẩm từ Google Sheet API</h2>
+    <div class="products" id="product-list">
+      <!-- Sản phẩm được render tại đây -->
+    </div>
+
+    <div class="cart">
+      <h2>🛒 Giỏ hàng</h2>
+      <ul id="cart-items"></ul>
+      <p><strong>Tổng tiền:</strong> <span id="total">0</span> đ</p>
+    </div>
+
+    <div class="login-form">
+      <h2>🔐 Đăng nhập</h2>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" placeholder="Nhập email của bạn" />
+      </div>
+      <div class="form-group">
+        <label>Mật khẩu:</label>
+        <input type="password" placeholder="Nhập mật khẩu" />
+      </div>
+      <div class="form-group">
+        <button>Đăng nhập</button>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h2>📩 Liên hệ</h2>
+      <div class="form-group">
+        <label>Họ và tên:</label>
+        <input type="text" placeholder="Nhập họ tên" />
+      </div>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" placeholder="Nhập email" />
+      </div>
+      <div class="form-group">
+        <label>Nội dung:</label>
+        <textarea rows="5" placeholder="Gửi phản hồi hoặc thắc mắc..."></textarea>
+      </div>
+      <div class="form-group">
+        <button>Gửi liên hệ</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Toast notification -->
+  <div id="toast">✔️ Đã thêm vào giỏ hàng!</div>
+
+  <!-- Modal popup chi tiết sản phẩm -->
+  <div id="productModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img id="modalImage" src="" alt="">
+      <h3 id="modalName"></h3>
+      <p id="modalDescription"></p>
+      <div class="price" id="modalPrice"></div>
+      <div class="rating" id="modalRating"></div>
+      <button id="modalAddToCart">Thêm vào giỏ</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Cửa Hàng Từ Google Sheet. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
